@@ -5,4 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: vouch-opensource/tools.deps-build@1.0.1
+    - uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+    - uses: DeLaGuardo/setup-clojure@3.5
+      with:
+        cli: '1.10.3.933'
+    - run: clojure -Atest
