@@ -1,12 +1,5 @@
 ; https://datatracker.ietf.org/doc/draft-faltstrom-base45/
-; 01jul2021: use transducers
-
-(ns org.vuxu.base45
-  (:use [clojure.test :only [deftest is are testing]])
-  (:require [clojure.test.check.generators :as gen]
-            [clojure.test.check.properties :as prop]
-            [clojure.test.check :as tc]
-            ))
+(ns org.vuxu.base45)
 
 (def ^:const alphabet
   "The Base45 Alphabet"
@@ -41,7 +34,7 @@
              (.getBytes string "UTF8")))
 
 (defn decode [string]
-  (if (-> string count (mod 3) (= 1))
+  (when (-> string count (mod 3) (= 1))
     (throw (IllegalArgumentException. "invalid length, is 1 mod 3")))
   (->> string
        (into []
