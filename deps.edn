@@ -6,9 +6,7 @@
                       org.clojure/test.check {:mvn/version "1.1.0"}}
          :main-opts ["-m" "cognitect.test-runner"]
          :exec-fn cognitect.test-runner.api/test}
-  :release
-  {:extra-deps {applied-science/deps-library {:mvn/version "0.4.0"}}
-   :main-opts ["-m" "applied-science.deps-library"]}
-  :garamond
-  {:extra-deps {com.workframe/garamond {:mvn/version "0.4.0"}}
-   :main-opts ["-m" "garamond.main"]}}}
+  :build
+  {:deps {io.github.clojure/tools.build {:git/tag "v0.5.1" :git/sha "21da7d4"}
+          io.github.slipset/deps-deploy {:git/sha "9b8db1f57722d19cf92de57ac7db28d71a915bcf"}}
+   :ns-default build}}}
