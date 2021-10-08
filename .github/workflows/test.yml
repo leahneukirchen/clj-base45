@@ -12,4 +12,4 @@ jobs:
     - uses: DeLaGuardo/setup-clojure@3.5
       with:
         cli: '1.10.3.933'
-    - run: clojure -Atest
+    - run: clojure -X:test
